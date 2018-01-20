@@ -7,16 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		757A90D12012B68000D4E943 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757A90D02012B68000D4E943 /* AppDelegate.swift */; };
-		757A90D32012B68000D4E943 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757A90D22012B68000D4E943 /* ViewController.swift */; };
 		757A90D82012B68000D4E943 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 757A90D72012B68000D4E943 /* Assets.xcassets */; };
-		757A90DB2012B68000D4E943 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 757A90D92012B68000D4E943 /* LaunchScreen.storyboard */; };
 		757A90E62012B68000D4E943 /* CryptoFlickrTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757A90E52012B68000D4E943 /* CryptoFlickrTests.swift */; };
 		75B9DE172013501000621539 /* CryptoCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75B9DE0E2013501000621539 /* CryptoCore.framework */; };
 		75B9DE1E2013501000621539 /* CryptoCoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B9DE1D2013501000621539 /* CryptoCoreTests.swift */; };
 		75B9DE202013501000621539 /* CryptoCore.h in Headers */ = {isa = PBXBuildFile; fileRef = 75B9DE102013501000621539 /* CryptoCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		75B9DE232013501000621539 /* CryptoCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75B9DE0E2013501000621539 /* CryptoCore.framework */; };
 		75B9DE242013501000621539 /* CryptoCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 75B9DE0E2013501000621539 /* CryptoCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		F5AEB06F9DA4491D23713B5E /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5AEB97FFF58E6F85D8AD781 /* UIViewExtensions.swift */; };
+		F5AEB161B4A34A866C52CCCD /* ImageBrowserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5AEB0C1AD0991DAB7E865C9 /* ImageBrowserView.swift */; };
+		F5AEB30068D4312F082F2796 /* ImageBrowserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5AEBB50EF70470EA39194A8 /* ImageBrowserViewModel.swift */; };
+		F5AEB4783710F640FD145B7A /* ImageBrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5AEB980E90D2C6869950A6E /* ImageBrowserViewController.swift */; };
+		F5AEBE81B9539E30C3109C6C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5AEBE614832D3FB161C180D /* AppDelegate.swift */; };
+		F5AEBFD27E6A0878AAB4533D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5AEB734834801324A9AD75F /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,11 +69,7 @@
 
 /* Begin PBXFileReference section */
 		757A90CD2012B68000D4E943 /* CryptoFlickr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CryptoFlickr.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		757A90D02012B68000D4E943 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		757A90D22012B68000D4E943 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		757A90D72012B68000D4E943 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		757A90DA2012B68000D4E943 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		757A90DC2012B68000D4E943 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		757A90E12012B68000D4E943 /* CryptoFlickrTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CryptoFlickrTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		757A90E52012B68000D4E943 /* CryptoFlickrTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoFlickrTests.swift; sourceTree = "<group>"; };
 		757A90E72012B68000D4E943 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -80,6 +79,13 @@
 		75B9DE162013501000621539 /* CryptoCoreTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CryptoCoreTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		75B9DE1D2013501000621539 /* CryptoCoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoCoreTests.swift; sourceTree = "<group>"; };
 		75B9DE1F2013501000621539 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F5AEB0C1AD0991DAB7E865C9 /* ImageBrowserView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageBrowserView.swift; sourceTree = "<group>"; };
+		F5AEB734834801324A9AD75F /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		F5AEB97FFF58E6F85D8AD781 /* UIViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
+		F5AEB980E90D2C6869950A6E /* ImageBrowserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageBrowserViewController.swift; sourceTree = "<group>"; };
+		F5AEBB50EF70470EA39194A8 /* ImageBrowserViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageBrowserViewModel.swift; sourceTree = "<group>"; };
+		F5AEBDBDC8B16EDCDE9C550A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
+		F5AEBE614832D3FB161C180D /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,11 +147,10 @@
 		757A90CF2012B68000D4E943 /* CryptoFlickr */ = {
 			isa = PBXGroup;
 			children = (
-				757A90D02012B68000D4E943 /* AppDelegate.swift */,
-				757A90D22012B68000D4E943 /* ViewController.swift */,
 				757A90D72012B68000D4E943 /* Assets.xcassets */,
-				757A90D92012B68000D4E943 /* LaunchScreen.storyboard */,
-				757A90DC2012B68000D4E943 /* Info.plist */,
+				F5AEBC62E6B1F9B9D799CF0C /* Launch */,
+				F5AEBB331244CE51763FF1CA /* Flows */,
+				F5AEBF3391DBCAB94C568F3C /* Extensions */,
 			);
 			path = CryptoFlickr;
 			sourceTree = "<group>";
@@ -175,6 +180,42 @@
 				75B9DE1F2013501000621539 /* Info.plist */,
 			);
 			path = CryptoCoreTests;
+			sourceTree = "<group>";
+		};
+		F5AEBB331244CE51763FF1CA /* Flows */ = {
+			isa = PBXGroup;
+			children = (
+				F5AEBBDD47A1FFD521BC9774 /* Image Browser */,
+			);
+			path = Flows;
+			sourceTree = "<group>";
+		};
+		F5AEBBDD47A1FFD521BC9774 /* Image Browser */ = {
+			isa = PBXGroup;
+			children = (
+				F5AEB980E90D2C6869950A6E /* ImageBrowserViewController.swift */,
+				F5AEBB50EF70470EA39194A8 /* ImageBrowserViewModel.swift */,
+				F5AEB0C1AD0991DAB7E865C9 /* ImageBrowserView.swift */,
+			);
+			path = "Image Browser";
+			sourceTree = "<group>";
+		};
+		F5AEBC62E6B1F9B9D799CF0C /* Launch */ = {
+			isa = PBXGroup;
+			children = (
+				F5AEBE614832D3FB161C180D /* AppDelegate.swift */,
+				F5AEBDBDC8B16EDCDE9C550A /* Info.plist */,
+				F5AEB734834801324A9AD75F /* LaunchScreen.storyboard */,
+			);
+			path = Launch;
+			sourceTree = "<group>";
+		};
+		F5AEBF3391DBCAB94C568F3C /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				F5AEB97FFF58E6F85D8AD781 /* UIViewExtensions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -321,8 +362,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				757A90DB2012B68000D4E943 /* LaunchScreen.storyboard in Resources */,
 				757A90D82012B68000D4E943 /* Assets.xcassets in Resources */,
+				F5AEBFD27E6A0878AAB4533D /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -354,8 +395,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				757A90D32012B68000D4E943 /* ViewController.swift in Sources */,
-				757A90D12012B68000D4E943 /* AppDelegate.swift in Sources */,
+				F5AEBE81B9539E30C3109C6C /* AppDelegate.swift in Sources */,
+				F5AEB4783710F640FD145B7A /* ImageBrowserViewController.swift in Sources */,
+				F5AEB30068D4312F082F2796 /* ImageBrowserViewModel.swift in Sources */,
+				F5AEB161B4A34A866C52CCCD /* ImageBrowserView.swift in Sources */,
+				F5AEB06F9DA4491D23713B5E /* UIViewExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -406,17 +450,6 @@
 			targetProxy = 75B9DE212013501000621539 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		757A90D92012B68000D4E943 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				757A90DA2012B68000D4E943 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		757A90E82012B68000D4E943 /* Debug */ = {
@@ -531,8 +564,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = CryptoFlickr/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				INFOPLIST_FILE = "$(SRCROOT)/CryptoFlickr/Launch/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = me.zmicier.CryptoFlickr;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -546,8 +579,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = CryptoFlickr/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				INFOPLIST_FILE = "$(SRCROOT)/CryptoFlickr/Launch/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = me.zmicier.CryptoFlickr;
 				PRODUCT_NAME = "$(TARGET_NAME)";
