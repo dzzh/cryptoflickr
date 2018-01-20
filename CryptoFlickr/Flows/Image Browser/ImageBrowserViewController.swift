@@ -3,6 +3,7 @@
 // Copyright (c) 2018 Zmicier Zaleznicenka. All rights reserved.
 //
 
+import os.log
 import UIKit
 
 class ImageBrowserViewController: UIViewController {
@@ -19,6 +20,7 @@ class ImageBrowserViewController: UIViewController {
         self.viewModel = viewModel
         self.castedView = ImageBrowserView(searchBar: searchController.searchBar)
         super.init(nibName: nil, bundle: nil)
+        viewModel.delegate = self
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -37,12 +39,71 @@ class ImageBrowserViewController: UIViewController {
         searchController.searchBar.placeholder = "crypto search"
         searchController.searchBar.delegate = self
         searchController.dimsBackgroundDuringPresentation = true
+        searchController.obscuresBackgroundDuringPresentation = false
+
+        castedView.collectionView.dataSource = viewModel
+        castedView.collectionView.delegate = self
+
+        definesPresentationContext = true
+    }
+}
+
+extension ImageBrowserViewController: ImageBrowserViewModelDelegate {
+
+    func didCompleteSearch() {
+        castedView.updateSearchResults()
+        castedView.switchState(to: .searchResults)
+    }
+
+    func didFetchMoreResults() {
+        print("did fetch more results")
     }
 }
 
 extension ImageBrowserViewController: UISearchBarDelegate {
 
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        print("clicked search with text \(searchBar.text)")
+        guard let searchTerm = searchBar.text else {
+            os_log("Expected to have text in a search bar")
+            return
+        }
+        castedView.switchState(to: .searching)
+        viewModel.search(for: searchTerm)
+    }
+
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        castedView.switchState(to: .initial)
+    }
+}
+
+extension ImageBrowserViewController: UICollectionViewDelegate {
+
+}
+
+extension ImageBrowserViewController: UICollectionViewDelegateFlowLayout {
+
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return castedView.cellSize
+    }
+
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: castedView.cellMargin, left: castedView.cellMargin,
+            bottom: castedView.cellMargin, right: castedView.cellMargin)
+    }
+
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return castedView.cellMargin
+    }
+
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return castedView.cellMargin
     }
 }

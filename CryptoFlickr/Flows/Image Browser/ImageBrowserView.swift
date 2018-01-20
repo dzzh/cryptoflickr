@@ -25,6 +25,8 @@ class ImageBrowserView: UIView {
 
     // MARK: - Constants
 
+    let cellMargin: CGFloat = 4
+    private let numberOfColumns = 3
     private let searchBarHeight: CGFloat = 44
     private let animationDuration: TimeInterval = 0.2
 
@@ -63,6 +65,11 @@ class ImageBrowserView: UIView {
 
     // MARK: - Interfaces
 
+    var cellSize: CGSize {
+        let width: CGFloat = (bounds.width - cellMargin * CGFloat(numberOfColumns + 1)) / CGFloat(numberOfColumns)
+        return CGSize(width: width, height: width)
+    }
+
     func switchState(to state: ImageBrowserViewState, animated: Bool = true) {
         emptyStateLabel.text = state.emptyLabelText
         UIView.animate(withDuration: animated ? animationDuration : 0, animations: { [unowned self] in
@@ -75,6 +82,10 @@ class ImageBrowserView: UIView {
             }
         })
     }
+
+    func updateSearchResults() {
+        collectionView.reloadSections([0])
+    }
 }
 
 private extension ImageBrowserView {
@@ -84,12 +95,15 @@ private extension ImageBrowserView {
         // MARK: - Configure subviews
 
         backgroundColor = .white
+        collectionView.backgroundColor = .white
 
         searchBar.barTintColor = .white
         searchBar.searchBarStyle = .prominent
 
         emptyStateLabel.textAlignment = .center
         emptyStateLabel.numberOfLines = 0
+
+        collectionView.register(ImageCollectionViewCell.self, forCellWithReuseIdentifier: ImageCollectionViewCell.reuseIdentifier)
 
         // MARK: - Layout subviews
 

@@ -18,6 +18,7 @@
 		F5AEB161B4A34A866C52CCCD /* ImageBrowserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5AEB0C1AD0991DAB7E865C9 /* ImageBrowserView.swift */; };
 		F5AEB30068D4312F082F2796 /* ImageBrowserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5AEBB50EF70470EA39194A8 /* ImageBrowserViewModel.swift */; };
 		F5AEB4783710F640FD145B7A /* ImageBrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5AEB980E90D2C6869950A6E /* ImageBrowserViewController.swift */; };
+		F5AEB4DD63309CA816400FB0 /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5AEBA5074DFD0DA70F91692 /* ImageCollectionViewCell.swift */; };
 		F5AEBE81B9539E30C3109C6C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5AEBE614832D3FB161C180D /* AppDelegate.swift */; };
 		F5AEBFD27E6A0878AAB4533D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5AEB734834801324A9AD75F /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
@@ -83,6 +84,7 @@
 		F5AEB734834801324A9AD75F /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F5AEB97FFF58E6F85D8AD781 /* UIViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
 		F5AEB980E90D2C6869950A6E /* ImageBrowserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageBrowserViewController.swift; sourceTree = "<group>"; };
+		F5AEBA5074DFD0DA70F91692 /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		F5AEBB50EF70470EA39194A8 /* ImageBrowserViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageBrowserViewModel.swift; sourceTree = "<group>"; };
 		F5AEBDBDC8B16EDCDE9C550A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
 		F5AEBE614832D3FB161C180D /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -196,6 +198,7 @@
 				F5AEB980E90D2C6869950A6E /* ImageBrowserViewController.swift */,
 				F5AEBB50EF70470EA39194A8 /* ImageBrowserViewModel.swift */,
 				F5AEB0C1AD0991DAB7E865C9 /* ImageBrowserView.swift */,
+				F5AEBA5074DFD0DA70F91692 /* ImageCollectionViewCell.swift */,
 			);
 			path = "Image Browser";
 			sourceTree = "<group>";
@@ -400,6 +403,7 @@
 				F5AEB30068D4312F082F2796 /* ImageBrowserViewModel.swift in Sources */,
 				F5AEB161B4A34A866C52CCCD /* ImageBrowserView.swift in Sources */,
 				F5AEB06F9DA4491D23713B5E /* UIViewExtensions.swift in Sources */,
+				F5AEB4DD63309CA816400FB0 /* ImageCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
