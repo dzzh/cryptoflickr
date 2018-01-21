@@ -7,6 +7,7 @@ import Foundation
 import os.log
 
 public enum ApplicationError: Error {
+    case dataAlreadyFetched
     case internalError
     case malformedResponse
     case networkOperationCancelled

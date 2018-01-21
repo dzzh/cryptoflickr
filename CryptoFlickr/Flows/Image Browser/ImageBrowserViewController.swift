@@ -56,14 +56,20 @@ extension ImageBrowserViewController: UISearchBarDelegate {
         }
 
         castedView.switchState(to: .searching)
-        viewModel.search(for: searchTerm) { [weak self] error in
-            if let error = error {
+        viewModel.search(for: searchTerm) { [weak self] result in
+            switch result {
+            case .success(let imageCount):
+                self?.castedView.scrollToTop()
+                if imageCount.totalImages > 0 {
+                    self?.castedView.reloadSearchResults(completion: { [weak self] _ in
+                        self?.castedView.switchState(to: .searchResults)
+                    })
+                } else {
+                    self?.castedView.switchState(to: .noResults)
+                }
+            case .failure(let error):
                 self?.searchController.presentError(error)
                 self?.castedView.switchState(to: .initial)
-            } else {
-                self?.castedView.scrollToTop()
-                self?.castedView.updateSearchResults()
-                self?.castedView.switchState(to: .searchResults)
             }
         }
     }
@@ -98,5 +104,21 @@ extension ImageBrowserViewController: UICollectionViewDelegateFlowLayout {
                         layout collectionViewLayout: UICollectionViewLayout,
                         minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return castedView.cellMargin
+    }
+}
+
+extension ImageBrowserViewController: UIScrollViewDelegate {
+
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if castedView.didReachBottom(scrollView.contentOffset), viewModel.canFetchMoreResults {
+            viewModel.fetchMoreResults { [weak self] result in
+                switch result {
+                case .success(let imagesCount):
+                    self?.castedView.addSearchResults(imagesCount)
+                case .failure(let error):
+                    self?.searchController.presentError(error)
+                }
+            }
+        }
     }
 }

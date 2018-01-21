@@ -25,8 +25,6 @@ class NetworkOperation: Operation {
     }
 
     override func main() {
-        print("executing \(request.url?.query ?? "")")
-
         if isCancelled {
             completion(nil, nil, .networkOperationCancelled)
         }
@@ -37,7 +35,6 @@ class NetworkOperation: Operation {
             }
 
             self?.completion(data, response, error?.applicationError)
-            print("completed \(self?.request.url?.query ?? "")")
         }.resume()
     }
 }

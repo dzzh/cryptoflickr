@@ -26,6 +26,13 @@ protocol NetworkServiceType {
 
 class NetworkService {
 
+    // MARK: - Constants
+
+    private let imageCacheMemoryCapacity = 100 * 1024 * 1024 // 100 MB
+    private let imageCacheDiskCapacity = 500 * 1024 * 1024 // 500 MB
+
+    // MARK: - State
+
     private var imageDownloadSession: URLSession?
 }
 
@@ -77,6 +84,8 @@ private extension NetworkService {
     func createNewImageDownloadSession() {
         let configuration = URLSessionConfiguration.default
         configuration.requestCachePolicy = .returnCacheDataElseLoad
+        configuration.urlCache = URLCache(memoryCapacity: imageCacheMemoryCapacity, diskCapacity: imageCacheDiskCapacity,
+            diskPath: "imageCache")
         imageDownloadSession = URLSession(configuration: configuration)
     }
 }

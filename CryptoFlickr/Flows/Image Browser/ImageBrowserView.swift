@@ -26,6 +26,7 @@ class ImageBrowserView: UIView {
     // MARK: - Constants
 
     let cellMargin: CGFloat = 4
+    private let distanceToBottomToFetchMoreData: CGFloat = 200
     private let numberOfColumns = 3
     private let searchBarHeight: CGFloat = 44
     private let animationDuration: TimeInterval = 0.2
@@ -83,12 +84,30 @@ class ImageBrowserView: UIView {
         })
     }
 
-    func updateSearchResults() {
-        collectionView.reloadSections([0])
+    func reloadSearchResults(completion: @escaping (Bool) -> Void) {
+        collectionView.performBatchUpdates({ [unowned self] in
+            self.collectionView.reloadSections([0])
+        }, completion: completion)
+    }
+
+    func addSearchResults(_ imagesCount: ImagesCount) {
+        let firstIndex = imagesCount.totalImages - imagesCount.addedImages
+        var addedIndexPaths = [IndexPath]()
+        for i in firstIndex..<imagesCount.totalImages {
+            addedIndexPaths.append(IndexPath(row: i, section: 0))
+        }
+        collectionView.performBatchUpdates({ [unowned self] in
+            self.collectionView.insertItems(at: addedIndexPaths)
+        }, completion: nil)
     }
 
     func scrollToTop() {
         collectionView.setContentOffset(CGPoint.zero, animated: false)
+    }
+
+    func didReachBottom(_ contentOffset: CGPoint) -> Bool {
+        let maxOffset = collectionView.contentSize.height - collectionView.bounds.height
+        return maxOffset > 0 && maxOffset - contentOffset.y < distanceToBottomToFetchMoreData
     }
 }
 

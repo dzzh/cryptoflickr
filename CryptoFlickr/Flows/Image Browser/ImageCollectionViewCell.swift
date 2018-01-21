@@ -29,6 +29,7 @@ class ImageCollectionViewCell: UICollectionViewCell {
 
     override func prepareForReuse() {
         super.prepareForReuse()
+        tag = Int(arc4random())
         imageView.image = nil
     }
 
@@ -43,6 +44,7 @@ private extension ImageCollectionViewCell {
 
     func setup() {
 
+        tag = Int(arc4random())
         imageView.contentMode = .scaleAspectFit
 
         add(imageView)
