@@ -14,10 +14,17 @@ struct ImagesCount {
 
 protocol ImageBrowserViewModelType: UICollectionViewDataSource {
 
+    /// Start a new search for a given search term
+    /// - parameter term: search term
+    /// - parameter completion: completion block
     func search(for term: String, completion: @escaping (Result<ImagesCount>) -> Void)
 
+    /// Check whether a new results page can be fetched.
+    /// The page cannot be fetched at the moment if the search request for it is already in progress.
     var canFetchMoreResults: Bool { get }
 
+    /// For a current search, fetch the next page of results
+    /// - parameter completion: completion block
     func fetchMoreResults(completion: @escaping (Result<ImagesCount>) -> Void)
 }
 
@@ -30,7 +37,7 @@ class ImageBrowserViewModel: NSObject {
     // a storage of unique image URLs to prevent showing duplicate images
     private var uniqueUrls = Set<String>()
 
-    // numbers of already fetched pages, is used for infinite scrolling implementation
+    // indices of already fetched search result pages, is used for infinite scrolling implementation
     private var expectedPages = Set<Int>()
 
     private var currentSearchTerm = ""
@@ -91,6 +98,7 @@ extension ImageBrowserViewModel {
             return UICollectionViewCell()
         }
 
+        // A placeholder to show until the actual image is downloaded
         cell.update(with: UIImage.imageWithColor(.lightGray, size: CGSize(width: 1000, height: 1000)))
 
         guard let url = imageUrls[safe: indexPath.row] else {
@@ -103,9 +111,9 @@ extension ImageBrowserViewModel {
             case .success(let data):
                 if let image = UIImage(data: data) {
 
-                    // Comparing the tags is necessary to prevent a dequeued cell can be updated with an image
-                    // that was intended for the previous appearance of this cell. The tags are assigned randomly
-                    // and are updated each time the cell is reused.
+                    // Comparing the tags is necessary to prevent a situation when a dequeued cell is updated
+                    // with an image that was intended for the previous appearance of this cell.
+                    // The tags are assigned randomly and are updated each time the cell is reused.
                     if expectedTag == cell?.tag {
                         cell?.update(with: image)
                     }
@@ -128,7 +136,9 @@ private extension ImageBrowserViewModel {
             return
         }
 
-        imageDownloadService.fetchImageUrls(searchTerm: currentSearchTerm, page: nextSearchPage) { [weak self] (result: Result<[URL]>) in
+        imageDownloadService.fetchImageUrls(searchTerm: currentSearchTerm, page: nextSearchPage) {
+            [weak self] (result: Result<[URL]>) in
+
             switch result {
             case .success(let urls):
                 // First search for the new query, need to reset current images
@@ -139,6 +149,7 @@ private extension ImageBrowserViewModel {
                         self?.uniqueUrls.insert(url.path)
                     }
                     completion(.success(ImagesCount(totalImages: urls.count, addedImages: urls.count)))
+
                 // Search for one of consequent pages, add new results to the list
                 } else {
                     var addedImages = 0

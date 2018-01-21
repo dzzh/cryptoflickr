@@ -36,7 +36,7 @@ class NetworkUtils {
 private extension NetworkUtils {
 
     class func baseJsonRequest(for url: URL) -> URLRequest {
-        var request = URLRequest(url: url, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 10.0)
+        var request = URLRequest(url: url, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 30.0)
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.setValue("application/json", forHTTPHeaderField: "Accept")
         return request

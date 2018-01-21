@@ -5,6 +5,7 @@
 
 import Foundation
 
+// Result of an operation, usually an asynchronous one.
 public enum Result<T> {
     case success(T)
     case failure(ApplicationError)

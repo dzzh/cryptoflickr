@@ -109,8 +109,10 @@ extension ImageBrowserViewController: UICollectionViewDelegateFlowLayout {
 
 extension ImageBrowserViewController: UIScrollViewDelegate {
 
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        if castedView.didReachBottom(scrollView.contentOffset), viewModel.canFetchMoreResults {
+    func scrollViewWillEndDragging(_ scrollView: UIScrollView,
+                                   withVelocity velocity: CGPoint,
+                                   targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+        if castedView.didReachBottom(targetContentOffset.pointee), viewModel.canFetchMoreResults {
             viewModel.fetchMoreResults { [weak self] result in
                 switch result {
                 case .success(let imagesCount):

@@ -26,10 +26,13 @@ class ImageBrowserView: UIView {
     // MARK: - Constants
 
     let cellMargin: CGFloat = 4
-    private let distanceToBottomToFetchMoreData: CGFloat = 200
     private let numberOfColumns = 3
-    private let searchBarHeight: CGFloat = 44
+    private let searchBarHeight: CGFloat = 56
     private let animationDuration: TimeInterval = 0.2
+
+    // After the user scrolls the collection until bottom-distanceToBottom, we will request to fetch more search results.
+    // Fetching the next results page before actually reaching the bottom of the screen makes UX better (allegedly).
+    private let distanceToBottomToFetchMoreData: CGFloat = 200
 
     // MARK: - UI elements
 
@@ -84,12 +87,16 @@ class ImageBrowserView: UIView {
         })
     }
 
+    /// Fully reload the collection view
+    /// - parameter completion: completion block
     func reloadSearchResults(completion: @escaping (Bool) -> Void) {
         collectionView.performBatchUpdates({ [unowned self] in
             self.collectionView.reloadSections([0])
         }, completion: completion)
     }
 
+    /// Update the collection view after a new page of results was added
+    /// - parameter imagesCount: new count of search results
     func addSearchResults(_ imagesCount: ImagesCount) {
         let firstIndex = imagesCount.totalImages - imagesCount.addedImages
         var addedIndexPaths = [IndexPath]()

@@ -7,6 +7,10 @@ import UIKit
 
 extension UIImage {
 
+    /// Constructs an image of a given size filled with a given color.
+    /// - parameter color: image color
+    /// - parameter size: image size
+    /// - return image or nil if the image was not constructed
     class func imageWithColor(_ color: UIColor, size: CGSize) -> UIImage? {
         UIGraphicsBeginImageContext(size)
 

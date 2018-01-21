@@ -10,8 +10,6 @@ public enum ApplicationError: Error {
     case dataAlreadyFetched
     case internalError
     case malformedResponse
-    case networkOperationCancelled
-    case networkOperationTimedOut
     case unknown
 }
 

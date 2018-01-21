@@ -7,6 +7,7 @@
 //
 
 import CryptoCore
+import os.log
 import UIKit
 
 @UIApplicationMain
@@ -30,12 +31,18 @@ private extension AppDelegate {
         // However, this seems an overkill for such a simple project, that's why this shortcut.
         //
         // If you want to see my app that uses the coordinators to orchestrate navigation within and between the flows,
-        //have a look at https://github.com/dzzh/parkerly. The architecture there can still be improved
+        // have a look at https://github.com/dzzh/parkerly. The architecture there can still be improved
         // (e.g. by extracting dedicated routers and builders), but I'm in general happy with how coordinators work there.
 
         window = UIWindow(frame: UIScreen.main.bounds)
 
-        let flickrService: ImageDownloadServiceType = serviceLocator.getUnwrapped()
+        guard let flickrService: ImageDownloadServiceType = serviceLocator.getOptional() else {
+            os_log("Couldn't create Flickr service")
+            window?.rootViewController = UIViewController()
+            window?.makeKeyAndVisible()
+            return
+        }
+
         let imageBrowserViewModel = ImageBrowserViewModel(imageDownloadService: flickrService)
         window?.rootViewController = ImageBrowserViewController(viewModel: imageBrowserViewModel)
         window?.makeKeyAndVisible()

@@ -5,13 +5,16 @@
 
 import Foundation
 
+/// A storage of application services
 public protocol ServiceLocatorType {
 
+    /// Add a service to the storage
+    /// - parameter service: a service to add
     func add<T>(_ service: T)
 
+    /// Fetch the service of a given type from the storage
+    /// - return: a stored service or nil if the service is not stored
     func getOptional<T>() -> T?
-
-    func getUnwrapped<T>() -> T
 }
 
 public class ServiceLocator {
@@ -33,10 +36,6 @@ extension ServiceLocator: ServiceLocatorType {
     public func getOptional<T>() -> T? {
         let serviceKey = String(describing: T.self)
         return services[serviceKey] as? T
-    }
-
-    public func getUnwrapped<T>() -> T {
-        return getOptional()!
     }
 }
 
