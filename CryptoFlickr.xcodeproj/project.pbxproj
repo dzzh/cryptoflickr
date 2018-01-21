@@ -8,32 +8,37 @@
 
 /* Begin PBXBuildFile section */
 		757A90D82012B68000D4E943 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 757A90D72012B68000D4E943 /* Assets.xcassets */; };
-		757A90E62012B68000D4E943 /* CryptoFlickrTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757A90E52012B68000D4E943 /* CryptoFlickrTests.swift */; };
 		75B9DE172013501000621539 /* CryptoCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75B9DE0E2013501000621539 /* CryptoCore.framework */; };
-		75B9DE1E2013501000621539 /* CryptoCoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B9DE1D2013501000621539 /* CryptoCoreTests.swift */; };
 		75B9DE202013501000621539 /* CryptoCore.h in Headers */ = {isa = PBXBuildFile; fileRef = 75B9DE102013501000621539 /* CryptoCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		75B9DE232013501000621539 /* CryptoCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75B9DE0E2013501000621539 /* CryptoCore.framework */; };
 		75B9DE242013501000621539 /* CryptoCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 75B9DE0E2013501000621539 /* CryptoCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F5AEB06F9DA4491D23713B5E /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5AEB97FFF58E6F85D8AD781 /* UIViewExtensions.swift */; };
+		F5AEB0F6C980C2C63A0C1860 /* StubImageDownloadService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5AEB35CC29FB5AC4109D237 /* StubImageDownloadService.swift */; };
 		F5AEB13176E6A17D0BFF6BF7 /* ApplicationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5AEB4F5E38611841DDB2048 /* ApplicationError.swift */; };
 		F5AEB161B4A34A866C52CCCD /* ImageBrowserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5AEB0C1AD0991DAB7E865C9 /* ImageBrowserView.swift */; };
 		F5AEB18AF32DBBD4E103445B /* FlickrImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5AEBADB4C49E828E77B751E /* FlickrImageModel.swift */; };
+		F5AEB1E135E97DDD366399BD /* FlickrImagesListFixtures.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5AEBEACFEFCF02AE0DE2776 /* FlickrImagesListFixtures.swift */; };
 		F5AEB30068D4312F082F2796 /* ImageBrowserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5AEBB50EF70470EA39194A8 /* ImageBrowserViewModel.swift */; };
 		F5AEB3019D35C53A00C58B7E /* FlickrImagesList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5AEBFE3C49349622EC46A25 /* FlickrImagesList.swift */; };
 		F5AEB4783710F640FD145B7A /* ImageBrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5AEB980E90D2C6869950A6E /* ImageBrowserViewController.swift */; };
 		F5AEB4DD63309CA816400FB0 /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5AEBA5074DFD0DA70F91692 /* ImageCollectionViewCell.swift */; };
+		F5AEB6184B548D8B6D1B4EA3 /* FlickrImagesListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5AEBEBF2888C98C325818C9 /* FlickrImagesListTests.swift */; };
 		F5AEB633B6E2B5A1EF68595B /* ImageDownloadServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5AEB9F1A647BDDD4D1C8B17 /* ImageDownloadServiceType.swift */; };
 		F5AEB6789C7DE166445D6FD9 /* CollectionExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5AEBCD90FCB9174EB5A16BD /* CollectionExtensions.swift */; };
 		F5AEB6D59C008D6F79C68476 /* NetworkModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5AEB2A2221267497187B2D9 /* NetworkModel.swift */; };
+		F5AEB6E0B2E04BE8D8ED6AF3 /* StubNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5AEBBDDF5D3EB5C3C458C59 /* StubNetworkService.swift */; };
 		F5AEB7AE92D419EC4C51C8BE /* NetworkUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5AEBC6759168E8B02C4F737 /* NetworkUtils.swift */; };
 		F5AEB94EE06EEC73C32EBF87 /* UIImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5AEBD648E7FA469B9C33DDD /* UIImageExtensions.swift */; };
+		F5AEBA91F174ED31864D86C8 /* ImageDownloadServiceFlickrTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5AEB86D2D4C3F4F1E44A7B3 /* ImageDownloadServiceFlickrTests.swift */; };
 		F5AEBBE8143ED54BE0C23840 /* ServiceLocator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5AEB34243FDC8F47246C7B8 /* ServiceLocator.swift */; };
+		F5AEBCA2E1EF8D4036363940 /* ImageBrowserViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5AEB22C5A1BDB9EDED6284F /* ImageBrowserViewModelTests.swift */; };
 		F5AEBE81B9539E30C3109C6C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5AEBE614832D3FB161C180D /* AppDelegate.swift */; };
 		F5AEBE8FD1B427EB4D7EF0F4 /* ImageUrlModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5AEB0659FDFF40CEF445D86 /* ImageUrlModelType.swift */; };
 		F5AEBF69398BF35C1C163E1D /* ImageDownloadServiceFlickr.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5AEB1D3572370EC9D9FFD86 /* ImageDownloadServiceFlickr.swift */; };
 		F5AEBF770199BB9C6B896879 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5AEB0A5C8B0C000E2D4CC4E /* NetworkService.swift */; };
 		F5AEBF899CC9FC921ED071DB /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5AEB5C7ED9CA46877510A6D /* Result.swift */; };
 		F5AEBF8E5CF6D4C20F4AC0F9 /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5AEB79B27527D8B7DC3E97F /* UIViewControllerExtensions.swift */; };
+		F5AEBFC2E559BE3130299EF3 /* ServiceLocatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5AEB57E612B7CF245D18F33 /* ServiceLocatorTests.swift */; };
 		F5AEBFD27E6A0878AAB4533D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5AEB734834801324A9AD75F /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
@@ -86,35 +91,40 @@
 		757A90CD2012B68000D4E943 /* CryptoFlickr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CryptoFlickr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		757A90D72012B68000D4E943 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		757A90E12012B68000D4E943 /* CryptoFlickrTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CryptoFlickrTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		757A90E52012B68000D4E943 /* CryptoFlickrTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoFlickrTests.swift; sourceTree = "<group>"; };
 		757A90E72012B68000D4E943 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		75B9DE0E2013501000621539 /* CryptoCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CryptoCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		75B9DE102013501000621539 /* CryptoCore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CryptoCore.h; sourceTree = "<group>"; };
 		75B9DE112013501000621539 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		75B9DE162013501000621539 /* CryptoCoreTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CryptoCoreTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		75B9DE1D2013501000621539 /* CryptoCoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoCoreTests.swift; sourceTree = "<group>"; };
 		75B9DE1F2013501000621539 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F5AEB0659FDFF40CEF445D86 /* ImageUrlModelType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageUrlModelType.swift; sourceTree = "<group>"; };
 		F5AEB0A5C8B0C000E2D4CC4E /* NetworkService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		F5AEB0C1AD0991DAB7E865C9 /* ImageBrowserView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageBrowserView.swift; sourceTree = "<group>"; };
 		F5AEB1D3572370EC9D9FFD86 /* ImageDownloadServiceFlickr.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageDownloadServiceFlickr.swift; sourceTree = "<group>"; };
+		F5AEB22C5A1BDB9EDED6284F /* ImageBrowserViewModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageBrowserViewModelTests.swift; sourceTree = "<group>"; };
 		F5AEB2A2221267497187B2D9 /* NetworkModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkModel.swift; sourceTree = "<group>"; };
 		F5AEB34243FDC8F47246C7B8 /* ServiceLocator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceLocator.swift; sourceTree = "<group>"; };
+		F5AEB35CC29FB5AC4109D237 /* StubImageDownloadService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StubImageDownloadService.swift; sourceTree = "<group>"; };
 		F5AEB4F5E38611841DDB2048 /* ApplicationError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationError.swift; sourceTree = "<group>"; };
+		F5AEB57E612B7CF245D18F33 /* ServiceLocatorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceLocatorTests.swift; sourceTree = "<group>"; };
 		F5AEB5C7ED9CA46877510A6D /* Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		F5AEB734834801324A9AD75F /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F5AEB79B27527D8B7DC3E97F /* UIViewControllerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtensions.swift; sourceTree = "<group>"; };
+		F5AEB86D2D4C3F4F1E44A7B3 /* ImageDownloadServiceFlickrTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageDownloadServiceFlickrTests.swift; sourceTree = "<group>"; };
 		F5AEB97FFF58E6F85D8AD781 /* UIViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
 		F5AEB980E90D2C6869950A6E /* ImageBrowserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageBrowserViewController.swift; sourceTree = "<group>"; };
 		F5AEB9F1A647BDDD4D1C8B17 /* ImageDownloadServiceType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageDownloadServiceType.swift; sourceTree = "<group>"; };
 		F5AEBA5074DFD0DA70F91692 /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		F5AEBADB4C49E828E77B751E /* FlickrImageModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlickrImageModel.swift; sourceTree = "<group>"; };
 		F5AEBB50EF70470EA39194A8 /* ImageBrowserViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageBrowserViewModel.swift; sourceTree = "<group>"; };
+		F5AEBBDDF5D3EB5C3C458C59 /* StubNetworkService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StubNetworkService.swift; sourceTree = "<group>"; };
 		F5AEBC6759168E8B02C4F737 /* NetworkUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkUtils.swift; sourceTree = "<group>"; };
 		F5AEBCD90FCB9174EB5A16BD /* CollectionExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionExtensions.swift; sourceTree = "<group>"; };
 		F5AEBD648E7FA469B9C33DDD /* UIImageExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageExtensions.swift; sourceTree = "<group>"; };
 		F5AEBDBDC8B16EDCDE9C550A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
 		F5AEBE614832D3FB161C180D /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		F5AEBEACFEFCF02AE0DE2776 /* FlickrImagesListFixtures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlickrImagesListFixtures.swift; sourceTree = "<group>"; };
+		F5AEBEBF2888C98C325818C9 /* FlickrImagesListTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlickrImagesListTests.swift; sourceTree = "<group>"; };
 		F5AEBFE3C49349622EC46A25 /* FlickrImagesList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlickrImagesList.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -188,8 +198,9 @@
 		757A90E42012B68000D4E943 /* CryptoFlickrTests */ = {
 			isa = PBXGroup;
 			children = (
-				757A90E52012B68000D4E943 /* CryptoFlickrTests.swift */,
 				757A90E72012B68000D4E943 /* Info.plist */,
+				F5AEB04A3978E3AF65FB9A52 /* Flows */,
+				F5AEBDD95457D73FC05AC70E /* Tests Support */,
 			);
 			path = CryptoFlickrTests;
 			sourceTree = "<group>";
@@ -211,10 +222,20 @@
 		75B9DE1C2013501000621539 /* CryptoCoreTests */ = {
 			isa = PBXGroup;
 			children = (
-				75B9DE1D2013501000621539 /* CryptoCoreTests.swift */,
 				75B9DE1F2013501000621539 /* Info.plist */,
+				F5AEB9C751CF633288E19DDD /* Models */,
+				F5AEBB5AA425BD39A1527CD6 /* Services */,
+				F5AEB58EC51E2200A0DA2B04 /* Tests Support */,
 			);
 			path = CryptoCoreTests;
+			sourceTree = "<group>";
+		};
+		F5AEB04A3978E3AF65FB9A52 /* Flows */ = {
+			isa = PBXGroup;
+			children = (
+				F5AEB447BAEE9618A3B1EFAC /* Image Browser */,
+			);
+			path = Flows;
 			sourceTree = "<group>";
 		};
 		F5AEB1700A64D58FF321B489 /* Helpers */ = {
@@ -236,6 +257,31 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
+		F5AEB447BAEE9618A3B1EFAC /* Image Browser */ = {
+			isa = PBXGroup;
+			children = (
+				F5AEB22C5A1BDB9EDED6284F /* ImageBrowserViewModelTests.swift */,
+			);
+			path = "Image Browser";
+			sourceTree = "<group>";
+		};
+		F5AEB58EC51E2200A0DA2B04 /* Tests Support */ = {
+			isa = PBXGroup;
+			children = (
+				F5AEB9F28E8FA11E3B27BA96 /* Stubs */,
+				F5AEB6727A6E1F20E20F0D7A /* Fixtures */,
+			);
+			path = "Tests Support";
+			sourceTree = "<group>";
+		};
+		F5AEB6727A6E1F20E20F0D7A /* Fixtures */ = {
+			isa = PBXGroup;
+			children = (
+				F5AEBEACFEFCF02AE0DE2776 /* FlickrImagesListFixtures.swift */,
+			);
+			path = Fixtures;
+			sourceTree = "<group>";
+		};
 		F5AEB7CAA73595774DBD0A6E /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -246,12 +292,45 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		F5AEB9C751CF633288E19DDD /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				F5AEBEBF2888C98C325818C9 /* FlickrImagesListTests.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		F5AEB9F28E8FA11E3B27BA96 /* Stubs */ = {
+			isa = PBXGroup;
+			children = (
+				F5AEBBDDF5D3EB5C3C458C59 /* StubNetworkService.swift */,
+			);
+			path = Stubs;
+			sourceTree = "<group>";
+		};
+		F5AEBAA5D749843FD0CAC711 /* Stubs */ = {
+			isa = PBXGroup;
+			children = (
+				F5AEB35CC29FB5AC4109D237 /* StubImageDownloadService.swift */,
+			);
+			path = Stubs;
+			sourceTree = "<group>";
+		};
 		F5AEBB331244CE51763FF1CA /* Flows */ = {
 			isa = PBXGroup;
 			children = (
 				F5AEBBDD47A1FFD521BC9774 /* Image Browser */,
 			);
 			path = Flows;
+			sourceTree = "<group>";
+		};
+		F5AEBB5AA425BD39A1527CD6 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				F5AEB86D2D4C3F4F1E44A7B3 /* ImageDownloadServiceFlickrTests.swift */,
+				F5AEB57E612B7CF245D18F33 /* ServiceLocatorTests.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		F5AEBBDD47A1FFD521BC9774 /* Image Browser */ = {
@@ -282,6 +361,14 @@
 				F5AEBFE3C49349622EC46A25 /* FlickrImagesList.swift */,
 			);
 			path = Flickr;
+			sourceTree = "<group>";
+		};
+		F5AEBDD95457D73FC05AC70E /* Tests Support */ = {
+			isa = PBXGroup;
+			children = (
+				F5AEBAA5D749843FD0CAC711 /* Stubs */,
+			);
+			path = "Tests Support";
 			sourceTree = "<group>";
 		};
 		F5AEBEEE173C92E774FDF877 /* Extensions */ = {
@@ -503,7 +590,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				757A90E62012B68000D4E943 /* CryptoFlickrTests.swift in Sources */,
+				F5AEB0F6C980C2C63A0C1860 /* StubImageDownloadService.swift in Sources */,
+				F5AEBCA2E1EF8D4036363940 /* ImageBrowserViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -530,7 +618,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				75B9DE1E2013501000621539 /* CryptoCoreTests.swift in Sources */,
+				F5AEB6184B548D8B6D1B4EA3 /* FlickrImagesListTests.swift in Sources */,
+				F5AEBA91F174ED31864D86C8 /* ImageDownloadServiceFlickrTests.swift in Sources */,
+				F5AEB6E0B2E04BE8D8ED6AF3 /* StubNetworkService.swift in Sources */,
+				F5AEB1E135E97DDD366399BD /* FlickrImagesListFixtures.swift in Sources */,
+				F5AEBFC2E559BE3130299EF3 /* ServiceLocatorTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -704,6 +796,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = CryptoFlickrTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = me.zmicier.CryptoFlickrTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -720,6 +813,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = CryptoFlickrTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = me.zmicier.CryptoFlickrTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -741,6 +835,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = CryptoCore/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = me.zmicier.CryptoCore;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
@@ -764,6 +859,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = CryptoCore/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = me.zmicier.CryptoCore;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
@@ -781,6 +877,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = CryptoCoreTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = me.zmicier.CryptoCoreTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -796,6 +893,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = CryptoCoreTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = me.zmicier.CryptoCoreTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";

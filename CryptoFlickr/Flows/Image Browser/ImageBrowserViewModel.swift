@@ -141,8 +141,10 @@ private extension ImageBrowserViewModel {
 
             switch result {
             case .success(let urls):
+                self?.nextSearchPage += 1
+
                 // First search for the new query, need to reset current images
-                if self?.nextSearchPage == 1 {
+                if self?.nextSearchPage == 2 {
                     self?.imageUrls = urls
                     self?.uniqueUrls = Set<String>()
                     for url in (self?.imageUrls ?? []) {
@@ -162,7 +164,6 @@ private extension ImageBrowserViewModel {
                     }
                     completion(.success(ImagesCount(totalImages: self?.imageUrls.count ?? 0, addedImages: addedImages)))
                 }
-                self?.nextSearchPage += 1
             case .failure(let error):
                 completion(.failure(error))
             }
