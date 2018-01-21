@@ -20,7 +20,6 @@ class ImageBrowserViewController: UIViewController {
         self.viewModel = viewModel
         self.castedView = ImageBrowserView(searchBar: searchController.searchBar)
         super.init(nibName: nil, bundle: nil)
-        viewModel.delegate = self
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -48,18 +47,6 @@ class ImageBrowserViewController: UIViewController {
     }
 }
 
-extension ImageBrowserViewController: ImageBrowserViewModelDelegate {
-
-    func didCompleteSearch() {
-        castedView.updateSearchResults()
-        castedView.switchState(to: .searchResults)
-    }
-
-    func didFetchMoreResults() {
-        print("did fetch more results")
-    }
-}
-
 extension ImageBrowserViewController: UISearchBarDelegate {
 
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
@@ -67,17 +54,22 @@ extension ImageBrowserViewController: UISearchBarDelegate {
             os_log("Expected to have text in a search bar")
             return
         }
+
         castedView.switchState(to: .searching)
-        viewModel.search(for: searchTerm)
+        viewModel.search(for: searchTerm) { [weak self] error in
+            if let error = error {
+                self?.searchController.presentError(error)
+                self?.castedView.switchState(to: .initial)
+            } else {
+                self?.castedView.updateSearchResults()
+                self?.castedView.switchState(to: .searchResults)
+            }
+        }
     }
 
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         castedView.switchState(to: .initial)
     }
-}
-
-extension ImageBrowserViewController: UICollectionViewDelegate {
-
 }
 
 extension ImageBrowserViewController: UICollectionViewDelegateFlowLayout {

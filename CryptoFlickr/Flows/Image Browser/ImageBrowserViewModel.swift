@@ -3,39 +3,40 @@
 // Copyright (c) 2018 Zmicier Zaleznicenka. All rights reserved.
 //
 
+import CryptoCore
 import os.log
 import UIKit
 
-protocol ImageBrowserViewModelDelegate: class {
-
-    func didCompleteSearch()
-
-    func didFetchMoreResults()
-}
-
 protocol ImageBrowserViewModelType: UICollectionViewDataSource {
 
-    var delegate: ImageBrowserViewModelDelegate? { get set }
+    func search(for term: String, completion: @escaping (ApplicationError?) -> Void)
 
-    func search(for term: String)
-
-    func fetchMoreResults()
+    func fetchMoreResults(completion: @escaping (ApplicationError?) -> Void)
 }
 
 class ImageBrowserViewModel: NSObject {
 
-    private var imageIds = [String]()
-    weak var delegate: ImageBrowserViewModelDelegate?
+    private let imageDownloadService: ImageDownloadServiceType
+
+    private var imageURLs = [URL]()
+    private var currentSearchTerm = ""
+    private var nextSearchPage = 0
+
+    init(imageDownloadService: ImageDownloadServiceType) {
+        self.imageDownloadService = imageDownloadService
+    }
 }
 
 extension ImageBrowserViewModel: ImageBrowserViewModelType {
 
-    func search(for term: String) {
-        delegate?.didCompleteSearch()
+    func search(for term: String, completion: @escaping (ApplicationError?) -> Void) {
+        nextSearchPage = 1
+        currentSearchTerm = term
+        fetchImages(completion: completion)
     }
 
-    func fetchMoreResults() {
-        delegate?.didFetchMoreResults()
+    func fetchMoreResults(completion: @escaping (ApplicationError?) -> Void) {
+        fetchImages(completion: completion)
     }
 }
 
@@ -48,7 +49,7 @@ extension ImageBrowserViewModel {
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 20
+        return imageURLs.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -60,6 +61,35 @@ extension ImageBrowserViewModel {
 
         cell.update(with: UIImage.imageWithColor(.red, size: CGSize(width: 1000, height: 1000)))
         return cell
+    }
+}
+
+private extension ImageBrowserViewModel {
+
+    func fetchImages(completion: @escaping (ApplicationError?) -> Void) {
+        guard !currentSearchTerm.isEmpty, nextSearchPage > 0 else {
+            os_log("Inconsistent state")
+            completion(.internalError)
+            return
+        }
+
+        imageDownloadService.fetchImageUrls(searchTerm: currentSearchTerm, page: nextSearchPage) { [weak self] (result: Result<[URL]>) in
+            switch result {
+            case .success(let urls):
+                // First search for the new query, need to reset current images
+                if self?.nextSearchPage == 1 {
+                    self?.imageURLs = urls
+                    completion(nil)
+                // Search for one of consequent pages, add new results to the list
+                } else {
+                    self?.imageURLs.append(contentsOf: urls)
+                    completion(nil)
+                }
+                self?.nextSearchPage += 1
+            case .failure(let error):
+                completion(error)
+            }
+        }
     }
 }
 

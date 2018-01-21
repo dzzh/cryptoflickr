@@ -6,12 +6,15 @@
 //  Copyright © 2018 Zmicier Zaleznicenka. All rights reserved.
 //
 
+import CryptoCore
 import UIKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+
+    private let serviceLocator = ServiceLocator()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         setup()
@@ -31,7 +34,9 @@ private extension AppDelegate {
         // (e.g. by extracting dedicated routers and builders), but I'm in general happy with how coordinators work there.
 
         window = UIWindow(frame: UIScreen.main.bounds)
-        let imageBrowserViewModel = ImageBrowserViewModel()
+
+        let flickrService: ImageDownloadServiceType = serviceLocator.getUnwrapped()
+        let imageBrowserViewModel = ImageBrowserViewModel(imageDownloadService: flickrService)
         window?.rootViewController = ImageBrowserViewController(viewModel: imageBrowserViewModel)
         window?.makeKeyAndVisible()
     }
