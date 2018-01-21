@@ -51,6 +51,18 @@ extension ImageDownloadServiceFlickr: ImageDownloadServiceType {
             }
         }
     }
+
+    public func downloadImageData(at url: URL, completion: @escaping (Result<Data>) -> Void) {
+        networkService.downloadImage(at: url) { result in
+            DispatchQueue.main.async {
+                completion(result)
+            }
+        }
+    }
+
+    public func cancelPendingImageDownloads() {
+        networkService.resetImageDownloadSession()
+    }
 }
 
 private extension ImageDownloadServiceFlickr {

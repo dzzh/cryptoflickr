@@ -59,7 +59,23 @@ extension ImageBrowserViewModel {
             return UICollectionViewCell()
         }
 
-        cell.update(with: UIImage.imageWithColor(.red, size: CGSize(width: 1000, height: 1000)))
+        cell.update(with: UIImage.imageWithColor(.lightGray, size: CGSize(width: 1000, height: 1000)))
+
+        guard let url = imageURLs[safe: indexPath.row] else {
+            return cell
+        }
+
+        imageDownloadService.downloadImageData(at: url) { [weak cell] (result: Result<Data>) in
+            switch result {
+            case .success(let data):
+                if let image = UIImage(data: data) {
+                    cell?.update(with: image)
+                }
+            case.failure(let error):
+                os_log("%@", error.localizedDescription)
+            }
+        }
+
         return cell
     }
 }
@@ -71,6 +87,10 @@ private extension ImageBrowserViewModel {
             os_log("Inconsistent state")
             completion(.internalError)
             return
+        }
+
+        if nextSearchPage == 1 {
+            imageDownloadService.cancelPendingImageDownloads()
         }
 
         imageDownloadService.fetchImageUrls(searchTerm: currentSearchTerm, page: nextSearchPage) { [weak self] (result: Result<[URL]>) in
@@ -90,25 +110,5 @@ private extension ImageBrowserViewModel {
                 completion(error)
             }
         }
-    }
-}
-
-// TODO kill, testing code
-
-private extension UIImage {
-
-    class func imageWithColor(_ color: UIColor, size: CGSize) -> UIImage {
-        UIGraphicsBeginImageContext(size)
-
-        let context = UIGraphicsGetCurrentContext()
-        let frame = CGRect(origin: CGPoint.zero, size: size)
-        context?.setFillColor(color.cgColor)
-        context?.fill(frame)
-
-        let result = UIGraphicsGetImageFromCurrentImageContext()
-
-        UIGraphicsEndImageContext()
-
-        return result!
     }
 }

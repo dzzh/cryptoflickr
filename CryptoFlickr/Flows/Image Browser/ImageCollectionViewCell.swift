@@ -34,7 +34,7 @@ class ImageCollectionViewCell: UICollectionViewCell {
 
     // MARK: - Interface
 
-    func update(with image: UIImage) {
+    func update(with image: UIImage?) {
         imageView.image = image
     }
 }

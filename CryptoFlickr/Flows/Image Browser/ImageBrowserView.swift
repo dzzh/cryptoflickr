@@ -86,6 +86,10 @@ class ImageBrowserView: UIView {
     func updateSearchResults() {
         collectionView.reloadSections([0])
     }
+
+    func scrollToTop() {
+        collectionView.setContentOffset(CGPoint.zero, animated: false)
+    }
 }
 
 private extension ImageBrowserView {

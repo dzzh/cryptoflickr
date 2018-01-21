@@ -61,6 +61,7 @@ extension ImageBrowserViewController: UISearchBarDelegate {
                 self?.searchController.presentError(error)
                 self?.castedView.switchState(to: .initial)
             } else {
+                self?.castedView.scrollToTop()
                 self?.castedView.updateSearchResults()
                 self?.castedView.switchState(to: .searchResults)
             }

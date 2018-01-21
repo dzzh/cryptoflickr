@@ -5,31 +5,39 @@
 
 import Foundation
 
-// TODO: add support for download type
-// TODO: decrease priority for download operation
+class NetworkOperation: Operation {
 
-enum NetworkOperationType {
-    case data
-    case download
-}
-
-class NetworkOperation: BlockOperation {
-
-    private let request: URLRequest
-    private let completion: (Data?, URLResponse?, Error?) -> Void
-
-    init(type: NetworkOperationType, request: URLRequest, completion: @escaping (Data?, URLResponse?, Error?) -> Void) {
-        self.request = request
-        self.completion = completion
-        super.init()
-        addExecutionBlock(requestBlock)
+    enum OperationType {
+        case imageDownload
+        case generic
     }
 
-    private var requestBlock: () -> Void {
-        return {
-            URLSession.shared.dataTask(with: self.request) { [weak self] (data, response, error) in
-                self?.completion(data, response, error)
-            }.resume()
+    let type: OperationType
+
+    private let request: URLRequest
+    private let completion: (Data?, URLResponse?, ApplicationError?) -> Void
+
+    init(request: URLRequest, type: OperationType = .generic,
+         completion: @escaping (Data?, URLResponse?, ApplicationError?) -> Void) {
+        self.request = request
+        self.type = type
+        self.completion = completion
+    }
+
+    override func main() {
+        print("executing \(request.url?.query ?? "")")
+
+        if isCancelled {
+            completion(nil, nil, .networkOperationCancelled)
         }
+
+        URLSession.shared.dataTask(with: request) { [weak self] (data, response, error) in
+            if self?.isCancelled ?? false {
+                self?.completion(nil, nil, .networkOperationCancelled)
+            }
+
+            self?.completion(data, response, error?.applicationError)
+            print("completed \(self?.request.url?.query ?? "")")
+        }.resume()
     }
 }

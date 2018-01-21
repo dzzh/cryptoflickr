@@ -8,4 +8,8 @@ import Foundation
 public protocol ImageDownloadServiceType {
 
     func fetchImageUrls(searchTerm: String, page: Int, completion: @escaping (Result<[URL]>) -> Void)
+
+    func downloadImageData(at url: URL, completion: @escaping (Result<Data>) -> Void)
+
+    func cancelPendingImageDownloads()
 }

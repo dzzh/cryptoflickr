@@ -9,6 +9,8 @@ import os.log
 public enum ApplicationError: Error {
     case internalError
     case malformedResponse
+    case networkOperationCancelled
+    case networkOperationTimedOut
     case unknown
 }
 

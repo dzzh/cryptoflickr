@@ -14,31 +14,26 @@ protocol NetworkServiceType {
     /// - parameter completion: completion block
     func requestModel<T: NetworkModel>(_ request: URLRequest,
                                        completion: @escaping (Result<T>) -> Void)
+
+    /// Download the image at a provided URL.
+    /// - parameter url: download url
+    /// - parameter completion: completion block
+    func downloadImage(at url: URL, completion: @escaping (Result<Data>) -> Void)
+
+    /// Cancel all the tasks related to the current image download session and start a new session.
+    func resetImageDownloadSession()
 }
 
 class NetworkService {
 
-    // MARK: - Constants
-
-    private let operationQueueName = "networkQueue"
-
-    // MARK: - State
-
-    private let operationQueue = OperationQueue()
-
-    // MARK: - Initialization
-
-    init() {
-        operationQueue.name = operationQueueName
-        operationQueue.maxConcurrentOperationCount = 4
-    }
+    private var imageDownloadSession: URLSession?
 }
 
 extension NetworkService: NetworkServiceType {
 
     func requestModel<T: NetworkModel>(_ request: URLRequest,
                                        completion: @escaping (Result<T>) -> Void) {
-        performRawRequest(request) { data, response, error in
+        URLSession.shared.dataTask(with: request) { (data, response, error) -> Void in
             let result: Result<T>
             if let error = error {
                 result = Result.failure(error.applicationError)
@@ -50,19 +45,38 @@ extension NetworkService: NetworkServiceType {
                 }
             }
             completion(result)
+        }.resume()
+    }
+
+    func downloadImage(at url: URL, completion: @escaping (Result<Data>) -> Void) {
+        if imageDownloadSession == nil {
+            createNewImageDownloadSession()
         }
+
+        imageDownloadSession?.dataTask(with: url) { (data, response, error) -> Void in
+            let result: Result<Data>
+            if let error = error {
+                result = .failure(error.applicationError)
+            } else if let data = data {
+                result = .success(data)
+            } else {
+                result = .failure(.malformedResponse)
+            }
+            completion(result)
+        }.resume()
+    }
+
+    func resetImageDownloadSession() {
+        imageDownloadSession?.invalidateAndCancel()
+        imageDownloadSession = nil
     }
 }
 
 private extension NetworkService {
 
-    func performRawRequest(_ request: URLRequest,
-                           completion externalCompletion: @escaping (Data?, URLResponse?, ApplicationError?) -> Void) {
-        let internalCompletion: (Data?, URLResponse?, Error?) -> Void = { data, response, error in
-            externalCompletion(data, response, error?.applicationError)
-        }
-
-        let operation = NetworkOperation(type: .data, request: request, completion: internalCompletion)
-        operationQueue.addOperation(operation)
+    func createNewImageDownloadSession() {
+        let configuration = URLSessionConfiguration.default
+        configuration.requestCachePolicy = .returnCacheDataElseLoad
+        imageDownloadSession = URLSession(configuration: configuration)
     }
 }
